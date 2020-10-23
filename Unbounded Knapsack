@@ -1,0 +1,38 @@
+	import java.io.*;
+	import java.util.*;
+
+	public class Main {
+
+	    public static void main(String[] args) throws Exception {
+	         Scanner sc = new Scanner( System.in);
+        int n = sc.nextInt();
+        int val[] = new  int[n];
+        int wt[] = new  int[n];
+        for (int i=0;i<n;i++){
+            val[i]= sc.nextInt();
+        }
+        for (int i=0;i<n;i++){
+            wt[i]= sc.nextInt();
+        }
+        int cap = sc.nextInt();
+        int dp[] = new int[cap+1];
+        dp[0]=0;
+        for (int bagc =1;bagc<=cap;bagc++){
+            int max =0;
+            for (int i=0;i<n;i++){
+                if(wt[i]<=bagc){
+                    int rembagcap =bagc-wt[i];
+                    int rembagval = dp[rembagcap];
+                    int totbagval = rembagval+val[i];
+                    
+                    if (totbagval>max){
+                        max=totbagval;
+                    }
+                }
+            }
+            dp[bagc]=max;
+        }
+        System.out.println(dp[cap]);
+
+	    }
+	}
