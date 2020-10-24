@@ -1,0 +1,21 @@
+import java.io.*;
+import java.util.*;
+
+public class Main{
+
+public static void main(String[] args) throws Exception {
+     Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int ocZero = 1;
+        int ocOne =1;
+        for (int i=2;i<=n;i++){
+            int ncZero=ocOne;
+            int ncOne = ocOne+ocZero;
+            ocOne=ncOne;
+            ocZero=ncZero;
+        }
+        System.out.println(ocOne+ocZero);
+    
+ }
+
+}
