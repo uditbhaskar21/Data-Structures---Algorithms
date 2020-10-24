@@ -1,0 +1,22 @@
+import java.io.*;
+import java.util.*;
+
+public class Main{
+
+public static void main(String[] args) throws Exception {
+    // write your code here
+    Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        long oldspace =1;
+        long oldbuild =1;
+        for (int i=2;i<=n;i++){
+            long newspace = oldbuild;
+            long newbuild = oldbuild+oldspace;
+            oldbuild = newbuild;
+            oldspace = newspace;
+        }
+        long total = oldbuild+oldspace;
+        System.out.println(total*total);
+ }
+
+}
