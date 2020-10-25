@@ -1,0 +1,20 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+     Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        long ii= k*1;
+        long ij = k*(k-1);
+        long total = ii +ij;
+        for (int i=3;i<=n;i++){
+            ii = ij*1;
+            ij = total*(k-1);
+            total = ii+ij;
+        }
+        System.out.println(total);
+    }
+}
