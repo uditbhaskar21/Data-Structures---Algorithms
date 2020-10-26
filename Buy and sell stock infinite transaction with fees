@@ -1,0 +1,36 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int n =sc.nextInt();
+        int arr[] = new int[n];
+        for (int i=0;i< arr.length;i++){
+            arr[i]=sc.nextInt();
+        }
+        int f=sc.nextInt();
+        int obp= -arr[0];
+        int osp=0;
+        for (int i=1;i< arr.length;i++){
+            int nsp=0;
+            int nbp =0;
+            if (osp-arr[i] > obp){
+                nbp = osp-arr[i];
+            }
+            else {
+                nbp = obp;
+            }
+            if (obp+arr[i]-f>osp){
+                nsp = obp+arr[i]-f;
+            }else {
+                nsp = osp;
+            }
+            osp=nsp;
+            obp=nbp;
+        }
+        System.out.println(osp);
+    }
+
+}
