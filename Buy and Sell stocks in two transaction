@@ -1,0 +1,51 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        // write your code here
+        Scanner sc = new Scanner(System.in);
+        int n= sc.nextInt();
+        int arr[] = new int[n];
+        for (int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int mpist =0; //max profit if sold today
+        int lsf = arr[0]; //least element so far
+        int dpl[] = new int[n]; //this dp have the max element if sold upto today
+        for (int i=1;i<n;i++){
+            if (arr[i]<lsf){
+                lsf=arr[i];
+            }
+            mpist = arr[i]-lsf;
+            if (mpist>dpl[i-1]){
+                dpl[i]=mpist;
+            }else {
+                dpl[i]=dpl[i-1];
+            }
+        }
+        int mpibt =0; //max profit if bought today
+        int msf = arr[n-1]; // max element upto travelled backwards
+        int dpr[]= new int[n];
+        for (int i=n-2;i>=0;i--){
+            if (arr[i]>msf){
+                msf=arr[i];
+            }
+            mpibt = msf-arr[i];
+            if (mpibt>dpr[i+1]){
+                dpr[i]=mpibt;
+            }else {
+                dpr[i]=dpr[i+1];
+            }
+        }
+        int op = 0; //overall profit
+        for (int i=0;i<n;i++){
+            if (dpl[i]+dpr[i] >op){
+                op =dpr[i]+dpl[i];
+            }
+        }
+        System.out.println(op);
+    }
+
+}
