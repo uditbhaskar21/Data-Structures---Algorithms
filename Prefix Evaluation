@@ -1,0 +1,55 @@
+import java.io.*;
+import java.util.*;
+
+public class Main{
+  
+
+public static void main(String[] args) throws Exception {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    String exp = br.readLine();
+        Stack<Integer> value = new Stack<>();
+        Stack<String> infix = new Stack<>();
+        Stack<String> postfix = new Stack<>();
+        for (int i=exp.length()-1;i>=0;i--){
+            char ch = exp.charAt(i);
+            if (ch=='+'|| ch=='-'||ch=='*'||ch=='/'){
+                int value1 = value.pop();
+                int value2 = value.pop();
+                int val = operation(value1,value2,ch);
+                value.push(val);
+
+                String infix1 = infix.pop();
+                String infix2 = infix.pop();
+                String infixval = "("+infix1+ch+infix2+")";
+                infix.push(infixval);
+
+                String post1 = postfix.pop();
+                String post2 = postfix.pop();
+                String postval = post1+post2+ch;
+                postfix.push(postval);
+            }
+            else {
+                value.push(ch-'0');
+                infix.push(ch+"");
+                postfix.push(ch+"");
+            }
+        }
+        
+        System.out.println(value.pop());
+        System.out.println(infix.pop());
+        System.out.println(postfix.pop());
+    }
+    public static int operation(int v1, int v2, char operator){
+        if (operator == '+'){
+            return v1+v2;
+        }else if (operator == '-'){
+            return v1-v2;
+        }else if (operator == '*'){
+            return v1*v2;
+        }else {
+            return v1/v2;
+        }
+
+    // code
+ }
+}
