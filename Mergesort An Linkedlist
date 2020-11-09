@@ -1,0 +1,13 @@
+
+    public static LinkedList mergeSort(Node head, Node tail){
+      if(head == tail){
+          LinkedList res = new LinkedList();
+          res.addLast(head.data);
+          return res;
+      }
+      Node mid = midNode(head,tail);
+      LinkedList fsh = mergeSort(head,mid);
+      LinkedList lsh = mergeSort(mid.next,tail);
+      LinkedList cl = LinkedList.mergeTwoSortedLists(fsh,lsh);
+      return cl;
+    }
