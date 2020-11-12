@@ -1,0 +1,18 @@
+public void ReverseHelper(Node node){
+if(node == null){
+return;
+}
+ReverseHelper(node.next);
+   if(node==tail){
+    }
+   else{
+    node.next.next = node;
+   }
+}
+publiv void reverse(){
+ReverseHelper(head);
+head.next = null;
+Node temp = head;
+head = tail;
+tail = temp;
+}
