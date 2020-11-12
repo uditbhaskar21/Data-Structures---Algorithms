@@ -1,0 +1,21 @@
+private boolean Isphelper(Node right){
+        if(right == null){
+            return true;
+        }
+        boolean rres = Isphelper(right.next);
+        if(rres == false){
+            return false;
+        }
+        else if(pleft.data != right.data){
+            return false;
+        }
+        else{
+            pleft = pleft.next;
+            return true;
+        }
+    }
+      Node pleft;
+    public boolean IsPalindrome() {
+      pleft = head;
+      return Isphelper(head);
+    }
