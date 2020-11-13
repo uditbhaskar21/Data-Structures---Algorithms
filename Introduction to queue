@@ -1,0 +1,16 @@
+public static void main(String[] args) {
+        Queue<Integer>qi = new ArrayDeque<>();
+        qi.add(10);
+        System.out.println(qi);
+        qi.add(20);
+        System.out.println(qi);
+        qi.add(30);
+        System.out.println(qi);
+        qi.add(40);
+        System.out.println(qi);
+        qi.remove();
+        System.out.println(qi);
+        
+        System.out.println(qi.peek());
+        System.out.println(qi);
+    }
