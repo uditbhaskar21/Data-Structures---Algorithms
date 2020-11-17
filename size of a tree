@@ -1,0 +1,10 @@
+public static int size(Node node){
+    int s =0;
+    for(Node child:node.children){
+        int childsize = size(child);
+        s += childsize;
+    }
+    s +=1;
+    return s;
+    
+  }
