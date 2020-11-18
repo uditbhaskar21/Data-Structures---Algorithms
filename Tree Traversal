@@ -1,0 +1,11 @@
+public static void traversals(Node node){
+    // write your code here
+    System.out.println("Node Pre "+ node.data);
+        for (Node chid:node.children){
+            System.out.println("Edge Pre "+ node.data+"--"+chid.data);
+            traversals(chid);
+            System.out.println("Edge Post "+ node.data+"--"+chid.data);
+        }
+        //eulers right
+        System.out.println("Node Post "+ node.data);
+  }
