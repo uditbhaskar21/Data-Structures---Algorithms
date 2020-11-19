@@ -1,0 +1,34 @@
+private static class Node{
+int data;
+ArrayList<Node>children = new ArrayList<>();
+Node(){
+
+}
+Node (int data){
+this.data = data;
+}
+
+
+
+public static void levalOrderLinewise2(Node node){
+      Queue<Node>q = new ArrayDeque<>();
+      q.add(node);
+      q.add(new Node(-1));
+      while(q.size()>0){
+          node = q.remove();
+          if(node.data != -1){
+              System.out.print(node.data+" ");
+              for(Node child:node.children)
+              {
+                  q.add(child);
+              }
+              
+          }else{
+             if(q.size()>0){
+                 q.add(new Node(-1));
+                 System.out.println();
+                  
+              }
+          }
+      }
+  }
