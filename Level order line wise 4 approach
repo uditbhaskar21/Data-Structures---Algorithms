@@ -1,0 +1,25 @@
+private static class Pair{
+Node node;
+int level;
+Pair(Node node,int leval){
+  this.node = node;
+  this.level = level;
+ }
+}
+public static void levelorderlevelwise4(Node node){
+Queue<Pair> q = new ArrayDeque<>();
+q.add(new Pair(node,1));
+int level =1;
+while(q.size()>0){
+    Pair p  = q.remove();
+     if(p.level>level){
+       leval = p.level;
+       println();
+      }
+print(p.node.data+" ");
+     for(Node child:node.children){
+       Pair cp = new Par(child,p.level+1);
+       q.add(cp);
+        }
+}
+
