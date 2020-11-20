@@ -1,0 +1,19 @@
+public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int even0=0;
+        int even1 = 2;
+        System.out.print(even0+" "+ even1);
+        int a =0;
+        int b= 2;
+        int c = 2;
+        while (c<=n){
+        c = 4*b + a;
+        a=b;
+        b=c;
+        if (c>n){
+            break;
+        }
+        System.out.print(" "+c);
+        }
+    }
