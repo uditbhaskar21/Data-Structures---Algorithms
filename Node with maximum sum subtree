@@ -1,0 +1,15 @@
+static int msn =0;
+  static int ms = Integer.MIN_VALUE;
+  static int func(Node node){
+      int sum = 0;
+      for(Node child:node.children){
+          int csum = func(child);
+          sum += csum;
+      }
+      sum += node.data;
+      if(sum>ms){
+          ms = sum;
+          msn = node.data;
+      }
+      return sum;
+  }
