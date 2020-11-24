@@ -1,0 +1,10 @@
+ public static int height(Node node) {
+    // write your code here
+    if (node == null){
+            return -1;
+        }
+        int lh = height(node.left);
+        int rh = height(node.right);
+        int th = Math.max(lh,rh);
+        return th+1;
+  }
