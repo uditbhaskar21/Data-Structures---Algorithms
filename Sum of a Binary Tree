@@ -1,0 +1,10 @@
+ public static int sum(Node node) {
+    // write your code here
+    if (node == null){
+           return 0;
+       }
+       int leftsum = sum(node.left);
+       int rightsum = sum(node.right);
+       int totalsum = leftsum+rightsum+ node.data;
+       return totalsum;
+  }
