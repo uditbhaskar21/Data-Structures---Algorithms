@@ -1,0 +1,10 @@
+ public static void traversal(Node node){
+        if (node==null){
+            return;
+        }
+        System.out.println(node.data+"PRE");
+        traversal(node.left);
+        System.out.println(node.data+"IN");
+        traversal(node.right);
+        System.out.println(node.data+"POST");
+    }
