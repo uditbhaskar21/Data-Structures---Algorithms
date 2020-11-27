@@ -1,0 +1,14 @@
+static boolean isBal = true;
+  public static int isBalanced(Node node){
+      if(node==null){
+          return 0;
+      }
+    int lh = isBalanced(node.left);
+    int rh = isBalanced(node.right);
+    int gap = Math.abs(lh-rh);
+    if(gap>1){
+        isBal = false;
+    }
+    int mh = Math.max(lh,rh)+1;
+    return mh;
+  }
