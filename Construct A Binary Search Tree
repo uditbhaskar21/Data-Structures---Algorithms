@@ -1,0 +1,12 @@
+ public static Node construct(int[]arr,int lo,int hi){
+        if (lo>hi){
+            return null;
+        }
+        int mid = (lo+hi)/2;
+        int data = arr[mid];
+        Node lc= construct(arr,lo,mid-1);
+        Node rc = construct(arr,mid+1, hi);
+        Node  node = new Node(data,lc,rc);
+        return node;
+
+    }
