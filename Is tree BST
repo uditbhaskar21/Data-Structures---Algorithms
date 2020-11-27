@@ -1,0 +1,41 @@
+public static class BSTPair{
+      boolean isBST;
+      int min;
+      int max;
+  }
+  public static BSTPair isBST(Node node){
+      if(node==null){
+          BSTPair bp = new BSTPair();
+          bp.min = Integer.MAX_VALUE;
+          bp.max = Integer.MIN_VALUE;
+          bp.isBST = true;
+          return bp;
+      }
+      BSTPair lp = isBST(node.left);
+      BSTPair rp = isBST(node.right);
+      BSTPair mp = new BSTPair();
+      mp.isBST = lp.isBST && rp.isBST &&(node.data>=lp.max && node.data<=rp.min);
+      mp.min=Math.min(node.data,Math.min(lp.min,rp.min));
+      mp.max = Math.max(node.data,Math.max(lp.max,rp.max));
+      return mp;
+  }
+ 
+  
+  public static void main(String[] args) throws Exception {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    int n = Integer.parseInt(br.readLine());
+    Integer[] arr = new Integer[n];
+    String[] values = br.readLine().split(" ");
+    for (int i = 0; i < n; i++) {
+      if (values[i].equals("n") == false) {
+        arr[i] = Integer.parseInt(values[i]);
+      } else {
+        arr[i] = null;
+      }
+    }
+
+    Node root = construct(arr);
+    
+    BSTPair bp = isBST(root);
+    System.out.println(bp.isBST);
+  }
