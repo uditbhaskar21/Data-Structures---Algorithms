@@ -1,0 +1,21 @@
+public static void main(String[] args)throws Exception {
+        HashMap<String,Integer> hm = new HashMap<>();
+        hm.put("India",135);
+        hm.put("china",150);
+        hm.put("USA",25);
+        hm.put("Pakistan",40);
+        hm.put("England",2);
+//        System.out.println(hm);
+        hm.put("France",1);
+//        System.out.println(hm);
+//        System.out.println(hm.get("India"));
+//        System.out.println(hm.containsKey("Ind2ia"));
+//        System.out.println(hm.containsValue(2));
+        Set<String> keys = hm.keySet();
+        System.out.println(keys);
+        for (String key:hm.keySet()){
+            Integer val = hm.get(key);
+            System.out.println(key+" "+val);
+        }
+
+    }
