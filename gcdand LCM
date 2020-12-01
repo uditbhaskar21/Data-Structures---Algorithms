@@ -1,0 +1,23 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class gcdlcm {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int a1 = a;
+        int b1 = b;
+        while (a%b!=0){
+            int rem = a%b;
+            a=b;
+            b=rem;
+        }
+        int gcd = b;
+        int lcm = (a1*b1)/gcd;
+        System.out.println("gcd"+b);
+        System.out.println(lcm);
+
+    }
+}
